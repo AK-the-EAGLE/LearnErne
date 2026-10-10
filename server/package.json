@@ -1,0 +1,39 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "LernErne backend service",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest", 
+    "db:init": "node --import ./src/config/dns-bootstrap.js ./node_modules/migrate-mongo/bin/migrate-mongo.js up && node --import ./src/config/dns-bootstrap.js src/scripts/seedCourses.js",
+    "migrate:create": "migrate-mongo create",
+    "migrate:up": "migrate-mongo up",
+    "migrate:down": "migrate-mongo down",
+    "migrate:status": "migrate-mongo status"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.6",
+    "connect-mongo": "^5.1.0",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.3.0",
+    "express-session": "^1.18.2",
+    "migrate-mongo": "^14.0.7",
+    "mongoose": "^9.11.1",
+    "morgan": "^1.12.1"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0",
+    "supertest": "^7.3.1",
+    "vitest": "^5.0.3"
+  }
+}
